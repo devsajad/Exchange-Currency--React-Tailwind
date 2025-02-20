@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+@theme {
+  --breakpoint-lg: 57rem;
+  --font-sans: "Poppins", serif;
+}
+
+@layer base {
+  body {
+    @apply font-sans;
+  }
+  section {
+    @apply max-w-6xl md:mx-auto p-6 space-y-6 mx-6;
+  }
+}
+
+@layer components {
+  .input-style {
+    @apply outline-none bg-transparent text-gray-900 placeholder:text-gray-900 text-2xl font-medium;
+  }
+  .label-style {
+    @apply text-gray-500 text-sm;
+  }
+  .form-container-style {
+    @apply h-20 border-1 rounded-md px-3 border-gray-200 flex flex-col focus-within:ring-2 focus-within:ring-blue-500 focus-within:border-blue-500 transition mb-1 justify-center cursor-pointer;
+    @variant hover {
+      @apply bg-gray-100;
+    }
+  }
+  .search-input {
+    @apply text-base outline-none bg-transparent text-gray-800 placeholder:text-gray-400 ring-1 ring-blue-500 rounded-sm w-full p-3 z-10;
+  }
+}
+/* focus-within is a CSS pseudo-class that applies styles to an element when any of its child elements (like an <input> inside a <div>) receives focus. */

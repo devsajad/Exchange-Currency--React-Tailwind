@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./src/index.css" />
+    <title>Xe Currency Converter</title>
+  </head>
+  <body>
+    <div id="root">
+      <div class="relative md:static h-dvh">
+        <!-- ----- Header Section ------ -->
+        <header
+          class="text-center text-white space-y-2 md:space-y-4 bg-gradient-to-r from-[#0A146E] to-[#040F43] p-6 h-[50dvh] pt-10"
+        >
+          <h1 class="font-medium text-xl md:text-4xl">Xe Currency Converter</h1>
+          <p class="text-sm opacity-90 font-light md:text-lg">
+            Check live foreign currency exchange rates
+          </p>
+        </header>
+
+        <!-- ----- Form Section ------ -->
+        <section
+          class="shadow-lg rounded-3xl -translate-y-1/2 bg-white"
+        >
+          <form class="gap-2 grid lg:grid-cols-[1fr_2fr] grid-cols-1 md:p-5">
+            <!-- amount-->
+            <div class="form-container-style">
+              <label for="amount" class="label-style">Amount</label>
+              <input
+                type="text"
+                name="amount"
+                class="input-style"
+                placeholder="$1.00"
+              />
+            </div>
+            <!-- Currency Type -->
+            <div class="space-y-2 flex flex-col lg:flex-row gap-2 relative">
+              <!-- from -->
+              <div class="form-container-style md:relative md:grow-1">
+                <!-- Text -->
+                <div class="cursor-pointer pr-10">
+                  <label for="search" class="label-style cursor-pointer"
+                    >From</label
+                  >
+                  <div class="flex items-center gap-4 cursor-pointer">
+                    <img
+                      src="https://www.xe.com/svgs/flags/usd.static.svg"
+                      alt="US flag"
+                      class="size-5 object-cover rounded-full cursor-pointer"
+                    />
+                    <button class="font-medium text-lg cursor-pointer">
+                      USD <span class="text-gray-600">- US Dollar</span>
+                    </button>
+                  </div>
+
+                  <!-- search -->
+                  <input
+                    type="text"
+                    name="amount"
+                    class="block outline-none h-20 hidden"
+                    placeholder="Type to search "
+                  />
+                </div>
+              </div>
+
+              <!-- To -->
+
+              <div class="form-container-style md:relative md:grow-1">
+                <!-- Text -->
+                <div class="cursor-pointer md:pl-10">
+                  <label for="search" class="label-style cursor-pointer"
+                    >From</label
+                  >
+                  <div class="flex items-center gap-4 cursor-pointer">
+                    <img
+                      src="https://www.xe.com/svgs/flags/usd.static.svg"
+                      alt="US flag"
+                      class="size-5 object-cover rounded-full cursor-pointer"
+                    />
+                    <button class="font-medium text-lg cursor-pointer">
+                      USD <span class="text-gray-600">- US Dollar</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Switch button -->
+              <div
+                class="border-1 border-gray-100 inline-block rounded-full p-4 text-gray-800 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white hover:bg-gray-50 cursor-pointer"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 17 17"
+                  aria-hidden="true"
+                  class="h-4 w-4 rotate-90 text-greyblue-400 md:rotate-0"
+                >
+                  <path
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    d="M11.726 1.273l2.387 2.394H.667V5h13.446l-2.386 2.393.94.94 4-4-4-4-.94.94zM.666 12.333l4 4 .94-.94L3.22 13h13.447v-1.333H3.22l2.386-2.394-.94-.94-4 4z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Conver BTN -->
+            <button
+              class="bg-blue-600 text-white py-3 font-medium text-lg rounded-lg hover:bg-blue-500 transition cursor-pointer lg:justify-self-end lg:col-start-2 lg:w-3xs lg:mt-1"
+            >
+              Convert
+            </button>
+
+            <!-- Search -->
+            <div
+              class="bg-white flex flex-col absolute top-0 w-full left-0 h-full md:top-[110%] md:h-60 md:rounded-lg md:shadow-sm hidden"
+            >
+              <input
+                type="text"
+                name="amount"
+                class="search-input"
+                placeholder="Type to search "
+              />
+              <!-- countries list -->
+              <ul class="overflow-y-scroll h-full md:h-[40rem]">
+                <li class="flex gap-3 cursor-pointer hover:bg-gray-50 p-3">
+                  <img
+                    src="https://www.xe.com/svgs/flags/usd.static.svg"
+                    alt="US flag"
+                    class="size-5 object-cover rounded-full"
+                  />
+                  <p>USD US Dollar</p>
+                </li>
+              </ul>
+            </div>
+          </form>
+        </section>
+      </div>
+    </div>
+    <!-- <script type="module" src="./src/index.jsx"></script> -->
+  </body>
+</html>
