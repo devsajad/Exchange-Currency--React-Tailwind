@@ -4,10 +4,6 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
@@ -19,9 +15,7 @@
     <div id="root">
       <div class="relative lg:static h-dvh">
         <!-- ----- Header Section ------ -->
-        <header
-          class="text-center text-white space-y-2 lg:space-y-4 bg-gradient-to-r from-[#0A146E] to-[#040F43] p-6 h-[50dvh] pt-10"
-        >
+        <header class="header">
           <h1 class="font-medium text-xl lg:text-4xl">Xe Currency Converter</h1>
           <p class="text-sm opacity-90 font-light lg:text-lg">
             Check live foreign currency exchange rates
@@ -29,9 +23,7 @@
         </header>
 
         <!-- ----- Form Section ------ -->
-        <section
-          class="shadow-lg rounded-3xl -translate-y-1/2 bg-white"
-        >
+        <section class="shadow-lg rounded-3xl bg-white">
           <form class="gap-2 grid lg:grid-cols-[1fr_2fr] grid-cols-1 lg:p-5">
             <!-- amount-->
             <div class="form-container-style">
@@ -44,7 +36,7 @@
               />
             </div>
             <!-- Currency Type -->
-            <div class="space-y-2 flex flex-col lg:flex-row gap-2 relative">
+            <div class="space-y-2 flex flex-col lg:flex-row gap-2 lg:relative">
               <!-- from -->
               <div class="form-container-style lg:relative lg:grow-1">
                 <!-- Text -->
@@ -63,13 +55,36 @@
                     </button>
                   </div>
 
-                  <!-- search -->
+                  <!-- search Input-->
                   <input
                     type="text"
-                    name="amount"
+                    name="search"
                     class="block outline-none h-20 hidden"
                     placeholder="Type to search "
                   />
+                </div>
+
+                <!-- Search LIST -->
+                <div
+                  class="search-list"
+                >
+                  <input
+                    type="text"
+                    name="search"
+                    class="search-input"
+                    placeholder="Type to search "
+                  />
+                  <!-- countries list -->
+                  <ul class="overflow-y-scroll h-full lg:h-[40rem]">
+                    <li class="flex gap-3 cursor-pointer hover:bg-gray-50 p-3">
+                      <img
+                        src="https://www.xe.com/svgs/flags/usd.static.svg"
+                        alt="US flag"
+                        class="size-5 object-cover rounded-full"
+                      />
+                      <p>USD US Dollar</p>
+                    </li>
+                  </ul>
                 </div>
               </div>
 
@@ -91,13 +106,42 @@
                       USD <span class="text-gray-600">- US Dollar</span>
                     </button>
                   </div>
+
+                  <!-- search Ipute-->
+                  <input
+                    type="text"
+                    name="search"
+                    class="block outline-none h-20 hidden"
+                    placeholder="Type to search "
+                  />
+                </div>
+
+                <!-- Search LIST -->
+                <div
+                  class="search-list"
+                >
+                  <input
+                    type="text"
+                    name="search"
+                    class="search-input"
+                    placeholder="Type to search "
+                  />
+                  <!-- countries list -->
+                  <ul class="overflow-y-scroll h-full lg:h-[40rem]">
+                    <li class="flex gap-3 cursor-pointer hover:bg-gray-50 p-3">
+                      <img
+                        src="https://www.xe.com/svgs/flags/usd.static.svg"
+                        alt="US flag"
+                        class="size-5 object-cover rounded-full"
+                      />
+                      <p>USD US Dollar</p>
+                    </li>
+                  </ul>
                 </div>
               </div>
 
               <!-- Switch button -->
-              <div
-                class="border-1 border-gray-100 inline-block rounded-full p-4 text-gray-800 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white hover:bg-gray-50 cursor-pointer"
-              >
+              <div class="switch-container">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -116,34 +160,7 @@
             </div>
 
             <!-- Conver BTN -->
-            <button
-              class="bg-blue-600 text-white py-3 font-medium text-lg rounded-lg hover:bg-blue-500 transition cursor-pointer lg:justify-self-end lg:col-start-2 lg:w-3xs lg:mt-1"
-            >
-              Convert
-            </button>
-
-            <!-- Search -->
-            <div
-              class="bg-white flex flex-col absolute top-0 w-full left-0 h-full lg:top-[110%] lg:h-60 lg:rounded-lg lg:shadow-sm hidden"
-            >
-              <input
-                type="text"
-                name="amount"
-                class="search-input"
-                placeholder="Type to search "
-              />
-              <!-- countries list -->
-              <ul class="overflow-y-scroll h-full lg:h-[40rem]">
-                <li class="flex gap-3 cursor-pointer hover:bg-gray-50 p-3">
-                  <img
-                    src="https://www.xe.com/svgs/flags/usd.static.svg"
-                    alt="US flag"
-                    class="size-5 object-cover rounded-full"
-                  />
-                  <p>USD US Dollar</p>
-                </li>
-              </ul>
-            </div>
+            <button class="btn">Convert</button>
           </form>
         </section>
       </div>
