@@ -10,7 +10,7 @@
     @apply font-sans;
   }
   section {
-    @apply max-w-6xl md:mx-auto p-6 space-y-6 mx-6;
+    @apply max-w-6xl md:mx-auto p-6 space-y-6 mx-3;
   }
 }
 

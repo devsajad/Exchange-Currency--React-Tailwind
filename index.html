@@ -17,13 +17,13 @@
   </head>
   <body>
     <div id="root">
-      <div class="relative md:static h-dvh">
+      <div class="relative lg:static h-dvh">
         <!-- ----- Header Section ------ -->
         <header
-          class="text-center text-white space-y-2 md:space-y-4 bg-gradient-to-r from-[#0A146E] to-[#040F43] p-6 h-[50dvh] pt-10"
+          class="text-center text-white space-y-2 lg:space-y-4 bg-gradient-to-r from-[#0A146E] to-[#040F43] p-6 h-[50dvh] pt-10"
         >
-          <h1 class="font-medium text-xl md:text-4xl">Xe Currency Converter</h1>
-          <p class="text-sm opacity-90 font-light md:text-lg">
+          <h1 class="font-medium text-xl lg:text-4xl">Xe Currency Converter</h1>
+          <p class="text-sm opacity-90 font-light lg:text-lg">
             Check live foreign currency exchange rates
           </p>
         </header>
@@ -32,7 +32,7 @@
         <section
           class="shadow-lg rounded-3xl -translate-y-1/2 bg-white"
         >
-          <form class="gap-2 grid lg:grid-cols-[1fr_2fr] grid-cols-1 md:p-5">
+          <form class="gap-2 grid lg:grid-cols-[1fr_2fr] grid-cols-1 lg:p-5">
             <!-- amount-->
             <div class="form-container-style">
               <label for="amount" class="label-style">Amount</label>
@@ -46,7 +46,7 @@
             <!-- Currency Type -->
             <div class="space-y-2 flex flex-col lg:flex-row gap-2 relative">
               <!-- from -->
-              <div class="form-container-style md:relative md:grow-1">
+              <div class="form-container-style lg:relative lg:grow-1">
                 <!-- Text -->
                 <div class="cursor-pointer pr-10">
                   <label for="search" class="label-style cursor-pointer"
@@ -75,9 +75,9 @@
 
               <!-- To -->
 
-              <div class="form-container-style md:relative md:grow-1">
+              <div class="form-container-style lg:relative lg:grow-1">
                 <!-- Text -->
-                <div class="cursor-pointer md:pl-10">
+                <div class="cursor-pointer lg:pl-10">
                   <label for="search" class="label-style cursor-pointer"
                     >From</label
                   >
@@ -103,7 +103,7 @@
                   fill="none"
                   viewBox="0 0 17 17"
                   aria-hidden="true"
-                  class="h-4 w-4 rotate-90 text-greyblue-400 md:rotate-0"
+                  class="h-4 w-4 rotate-90 text-greyblue-400 lg:rotate-0"
                 >
                   <path
                     fill="currentColor"
@@ -124,7 +124,7 @@
 
             <!-- Search -->
             <div
-              class="bg-white flex flex-col absolute top-0 w-full left-0 h-full md:top-[110%] md:h-60 md:rounded-lg md:shadow-sm hidden"
+              class="bg-white flex flex-col absolute top-0 w-full left-0 h-full lg:top-[110%] lg:h-60 lg:rounded-lg lg:shadow-sm hidden"
             >
               <input
                 type="text"
@@ -133,7 +133,7 @@
                 placeholder="Type to search "
               />
               <!-- countries list -->
-              <ul class="overflow-y-scroll h-full md:h-[40rem]">
+              <ul class="overflow-y-scroll h-full lg:h-[40rem]">
                 <li class="flex gap-3 cursor-pointer hover:bg-gray-50 p-3">
                   <img
                     src="https://www.xe.com/svgs/flags/usd.static.svg"
