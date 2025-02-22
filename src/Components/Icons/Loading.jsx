@@ -1,9 +1,9 @@
 import React from "react";
 
-function Loading({ size }) {
+function Loading() {
   return (
     <div
-      className={`loading-icon size-${size} self-center max-lg:justify-self-center text-2xl font-medium my-2`}
+      className={`loading-icon size-10 self-center max-lg:justify-self-center text-2xl font-medium my-2`}
     >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
         <radialGradient

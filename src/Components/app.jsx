@@ -109,7 +109,7 @@ function App() {
             showToCurrency={showToCurrency}
             onSelectToCurrency={handleSelectToCurrency}
           />
-          {loading && <Loading size={10} />}
+          {loading && <Loading />}
           {convertResult && <ConversionResult result={convertResult} />}
 
           <SubmitForm onClickSubmit={handleClickSubmit} />
