@@ -6,6 +6,10 @@
 }
 
 @layer base {
+  html,
+  body {
+    @apply overflow-hidden;
+  }
   body {
     @apply font-sans;
   }
