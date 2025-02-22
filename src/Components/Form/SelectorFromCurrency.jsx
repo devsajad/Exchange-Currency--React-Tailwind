@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import SearchCurrency from "../Search/SearchCurrency";
 import React, { useState, useRef, useEffect } from "react";
 import SearchInput from "../Search/SearchInput";

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import Header from "./Header";
 import FormConverter from "./FormConverter";
 import InputCurrency from "./Form/InputCurrency";
