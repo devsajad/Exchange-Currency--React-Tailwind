@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { use, useEffect, useRef, useState } from "react";
 import Header from "./Header";
 import FormConverter from "./FormConverter";
 import InputCurrency from "./Form/InputCurrency";
@@ -13,7 +13,7 @@ const API_KEY = "fdf4362fd5e8c91b34801b7b";
 function App() {
   const [showFromCurrency, setShowFromCurrency] = useState(false);
   const [showToCurrency, setShowToCurrency] = useState(false);
-  const [inputCurrency, setInputCurrency] = useState(0);
+  const [inputCurrency, setInputCurrency] = useState("");
   const [convertResult, setConvertResult] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -30,8 +30,9 @@ function App() {
     currencySymbol: "€",
   });
 
+  const InputEl = useRef(null);
+
   function handleSelectFromCurrency(value) {
-    console.log(value);
     setFromCurrencyValue(value);
     setShowFromCurrency(false);
   }
@@ -63,27 +64,23 @@ function App() {
   }
 
   function handleInputCurrency(value) {
+    if (!isFinite(value)) return;
     setInputCurrency(value);
   }
   function handFromSearchClick() {
+    setShowToCurrency(false);
     setShowFromCurrency((s) => !s);
   }
   function handToSearchClick() {
+    setShowFromCurrency(false);
     setShowToCurrency((s) => !s);
   }
 
-  // useEffect(() => {
-  //   function handleClickOutside(event) {
-  //     if (fromRef.current && !fromRef.current.contains(event.target)) {
-  //       setShowFromCurrency(false);
-  //     }
-  //   }
-
-  //   document.addEventListener("mousedown", handleClickOutside);
-  //   return () => {
-  //     document.removeEventListener("mousedown", handleClickOutside);
-  //   };
-  // }, []);
+  useEffect(() => {
+    if (showFromCurrency || showToCurrency) {
+      InputEl.current.focus();
+    }
+  }, [showFromCurrency, showToCurrency]);
 
   return (
     <div className="relative lg:static h-dvh">
@@ -102,12 +99,14 @@ function App() {
             onSearchClick={handFromSearchClick}
             showFromCurrency={showFromCurrency}
             onSelectFromCurrency={handleSelectFromCurrency}
+            inputRef={InputEl}
           />
           <SelectorToCurrency
             toCurrencyValue={toCurrencyValue}
             onSearchClick={handToSearchClick}
             showToCurrency={showToCurrency}
             onSelectToCurrency={handleSelectToCurrency}
+            inputRef={InputEl}
           />
           {loading && <Loading />}
           {convertResult && <ConversionResult result={convertResult} />}
@@ -120,17 +119,3 @@ function App() {
 }
 
 export default App;
-
-// {
-//   "result": "success",
-//   "documentation": "https://www.exchangerate-api.com/docs",
-//   "terms_of_use": "https://www.exchangerate-api.com/terms",
-//   "time_last_update_unix": 1740182401,
-//   "time_last_update_utc": "Sat, 22 Feb 2025 00:00:01 +0000",
-//   "time_next_update_unix": 1740268801,
-//   "time_next_update_utc": "Sun, 23 Feb 2025 00:00:01 +0000",
-//   "base_code": "USD",
-//   "target_code": "IRR",
-//   "conversion_rate": 41999.3347,
-//   "conversion_result": 41999.3347
-// }

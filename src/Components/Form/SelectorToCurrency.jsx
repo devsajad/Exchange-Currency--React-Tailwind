@@ -9,19 +9,13 @@ function SelectorToCurrency({
   onSearchClick,
   showToCurrency,
   onSelectToCurrency,
+  inputRef,
 }) {
-  const inputRef = useRef(null);
   const [query, setQuery] = useState("");
 
   function handleQuery(value) {
     setQuery(value);
   }
-
-  useEffect(() => {
-    if (showToCurrency && inputRef.current) {
-      inputRef.current.focus();
-    }
-  }, [showToCurrency]);
 
   return (
     <div className="text-left form-container-style lg:relative grow-1">
@@ -31,6 +25,7 @@ function SelectorToCurrency({
             query={query}
             onQuery={handleQuery}
             onSearchClick={onSearchClick}
+            inputRef={inputRef}
           />
 
           <SearchCurrency query={query} onSelectToCurrency={onSelectToCurrency}>

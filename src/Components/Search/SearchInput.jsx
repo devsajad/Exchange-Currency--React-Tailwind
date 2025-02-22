@@ -1,6 +1,6 @@
 import React from "react";
 
-const SearchInput = ({ inputRef, query, onQuery, onSearchClick  }) => {
+const SearchInput = ({ query, onQuery, onSearchClick, inputRef }) => {
   return (
     <div className="flex items-center justify-between w-full">
       <input
