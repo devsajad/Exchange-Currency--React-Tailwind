@@ -44,6 +44,7 @@ function App() {
     e.preventDefault();
     try {
       setLoading(true);
+      setConvertResult(null);
 
       const fetchUrl = `https://v6.exchangerate-api.com/v6/${API_KEY}/pair/${fromCurrenyValue.currencyType}/${toCurrencyValue.currencyType}/${inputCurrency}`;
       const response = await fetch(fetchUrl);
@@ -108,7 +109,7 @@ function App() {
             showToCurrency={showToCurrency}
             onSelectToCurrency={handleSelectToCurrency}
           />
-          {loading && <Loading />}
+          {loading && <Loading size={10} />}
           {convertResult && <ConversionResult result={convertResult} />}
 
           <SubmitForm onClickSubmit={handleClickSubmit} />
