@@ -13,7 +13,7 @@ const API_KEY = "fdf4362fd5e8c91b34801b7b";
 function App() {
   const [showFromCurrency, setShowFromCurrency] = useState(false);
   const [showToCurrency, setShowToCurrency] = useState(false);
-  const [inputCurrency, setInputCurrency] = useState("");
+  const [inputCurrency, setInputCurrency] = useState(1);
   const [convertResult, setConvertResult] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -64,9 +64,13 @@ function App() {
   }
 
   function handleInputCurrency(value) {
-    if (!isFinite(value)) return;
-    setInputCurrency(value);
+    if (value === 0) {
+      setInputCurrency("");
+    } else if (isFinite(value)) {
+      setInputCurrency(value);
+    }
   }
+
   function handFromSearchClick() {
     setShowToCurrency(false);
     setShowFromCurrency((s) => !s);
