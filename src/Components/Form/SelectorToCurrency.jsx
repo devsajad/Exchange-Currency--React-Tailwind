@@ -1,5 +1,6 @@
+/* eslint-disable react/prop-types */
 import SearchCurrency from "../Search/SearchCurrency";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState} from "react";
 import SearchInput from "../Search/SearchInput";
 import CurrencySelectorDisplay from "./CurrencySelectorDisplay";
 
@@ -10,6 +11,7 @@ function SelectorToCurrency({
   showToCurrency,
   onSelectToCurrency,
   inputRef,
+  InputCurrencyEl,
 }) {
   const [query, setQuery] = useState("");
 
@@ -28,7 +30,11 @@ function SelectorToCurrency({
             inputRef={inputRef}
           />
 
-          <SearchCurrency query={query} onSelectToCurrency={onSelectToCurrency}>
+          <SearchCurrency
+            InputCurrencyEl={InputCurrencyEl}
+            query={query}
+            onSelectToCurrency={onSelectToCurrency}
+          >
             <SearchInput
               query={query}
               onQuery={handleQuery}

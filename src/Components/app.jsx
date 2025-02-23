@@ -1,4 +1,4 @@
-import React, { use, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Header from "./Header";
 import FormConverter from "./FormConverter";
 import InputCurrency from "./Form/InputCurrency";
@@ -30,6 +30,7 @@ function App() {
   });
 
   const InputEl = useRef(null);
+  const InputCurrencyEl = useRef(null);
 
   function handleSelectFromCurrency(value) {
     setFromCurrencyValue(value);
@@ -91,6 +92,24 @@ function App() {
     }
   }, [showFromCurrency, showToCurrency]);
 
+  useEffect(() => {
+    function handleClickOutside(event) {
+      console.log(InputEl.current, event.target);
+      if (
+        !InputEl.current?.contains(event.target) &&
+        !InputCurrencyEl.current?.contains(event.target)
+      ) {
+        setShowFromCurrency(false);
+        setShowToCurrency(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
     <div className="relative lg:static h-dvh">
       <Header />
@@ -109,6 +128,7 @@ function App() {
             showFromCurrency={showFromCurrency}
             onSelectFromCurrency={handleSelectFromCurrency}
             inputRef={InputEl}
+            InputCurrencyEl={InputCurrencyEl}
           />
           <SelectorToCurrency
             toCurrencyValue={toCurrencyValue}
@@ -116,6 +136,7 @@ function App() {
             showToCurrency={showToCurrency}
             onSelectToCurrency={handleSelectToCurrency}
             inputRef={InputEl}
+            InputCurrencyEl={InputCurrencyEl}
           />
           {loading && <Loading />}
           {convertResult && <ConversionResult result={convertResult} />}
