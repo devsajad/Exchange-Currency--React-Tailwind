@@ -7,8 +7,7 @@ import SelectorToCurrency from "./Form/SelectorToCurrency";
 import SubmitForm from "./Form/SubmitForm";
 import ConversionResult from "./Form/ConversionResult";
 import Loading from "./Icons/Loading";
-
-const API_KEY = "fdf4362fd5e8c91b34801b7b";
+import { ConvertCurrency } from "../utils/convertCurrency";
 
 function App() {
   const [showFromCurrency, setShowFromCurrency] = useState(false);
@@ -47,19 +46,25 @@ function App() {
       setLoading(true);
       setConvertResult(null);
 
-      const fetchUrl = `https://v6.exchangerate-api.com/v6/${API_KEY}/pair/${fromCurrenyValue.currencyType}/${toCurrencyValue.currencyType}/${inputCurrency}`;
-      const response = await fetch(fetchUrl);
-      const data = await response.json();
-      console.log(data);
-      setConvertResult(
-        data.conversion_result
-          ? `${toCurrencyValue.currencySymbol} ${data.conversion_result}`
-          : "Sorry we can't convert this currency"
+      const data = await ConvertCurrency(
+        fromCurrenyValue,
+        toCurrencyValue,
+        inputCurrency
       );
+
+      if (data.conversion_result) {
+        setConvertResult(
+          `${toCurrencyValue.currencySymbol} ${data.conversion_result}`
+        );
+      } else {
+        throw new Error("Sorry we can't convert this currency");
+      }
 
       setLoading(false);
     } catch (error) {
       console.error(error);
+      setLoading(false);
+      setConvertResult(error.message);
     }
   }
 

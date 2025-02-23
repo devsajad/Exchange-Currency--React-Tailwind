@@ -1,5 +1,4 @@
-import SearchCurrency from "../Search/SearchCurrency";
-import React, { useRef, useEffect } from "react";
+import React  from "react";
 
 export default function CurrencySelectorDisplay({
   onSearchClick,
